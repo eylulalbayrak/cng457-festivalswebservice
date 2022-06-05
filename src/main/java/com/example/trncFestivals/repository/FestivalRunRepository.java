@@ -19,7 +19,7 @@ public interface FestivalRunRepository extends JpaRepository<FestivalRun, Intege
     /**
      * Method for finding festival runs shorter than given duration
      * @param duration Duration of the festival run
-     * @return List of festival runs shorther than a given duration
+     * @return List of festival runs shorter than a given duration
      */
     List<FestivalRun> findByFestivalDurationLessThan(int duration);
 }
