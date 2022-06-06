@@ -5,6 +5,8 @@ import com.example.trncFestivals.service.ConcertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Controller for Concert Class
  */
@@ -25,4 +27,11 @@ public class ConcertController {
     public Concert addConcert(@RequestBody Concert concert){return concertService.save(concert);}
 
 
+    /**
+     * Method for finding a concert with given string in the description
+     * @param key String
+     * @return All concerts containing the string
+     */
+    @GetMapping("/concertsbydescription/{key}")
+    public List<Concert> getConcertByDescription(@PathVariable String key){return concertService.getConcertByDescription(key);}
 }
