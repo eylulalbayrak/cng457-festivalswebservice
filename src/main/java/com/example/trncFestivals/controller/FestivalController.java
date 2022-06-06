@@ -4,6 +4,7 @@ import com.example.trncFestivals.entity.Festival;
 import com.example.trncFestivals.entity.FestivalRun;
 import com.example.trncFestivals.service.FestivalService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -50,5 +51,8 @@ public class FestivalController {
     @GetMapping("/getfestivalsforacity/{city}")
     public List<Festival> getFestivalsForACity(@PathVariable String city){ return festivalService.getFestivalsForACity(city); }
 
+
+//    @GetMapping("/festivalsbyname")
+//    public List<Festival> getFestivalByName(@RequestParam(name="festivalName") String name){ return festivalService.getFestivalByName(name);}
 
 }

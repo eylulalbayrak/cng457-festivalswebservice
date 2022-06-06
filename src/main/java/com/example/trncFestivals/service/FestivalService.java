@@ -45,4 +45,7 @@ public class FestivalService {
      * @return All festivals with given city
      */
     public List<Festival> getFestivalsForACity(String city) { return festivalRepository.findAllByFestivalLocationContains(city);}
+
+
+//    public List<Festival> getFestivalByName(String name) { return festivalRepository.findAllByFestivalNameNative(name);}
 }
