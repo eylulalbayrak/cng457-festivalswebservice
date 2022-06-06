@@ -34,4 +34,12 @@ public class ShowController {
      */
     @GetMapping("/showsbyduration")
     public List<Show> getShowsBetweenRange(@RequestParam int start, @RequestParam int end) { return showService.getShowsBetweenRange(start, end);}
+
+    /**
+     * Method for getting a list of shows with maximum number of performers
+     * @return Shows with maximum number of performers
+     */
+    @GetMapping("/crowdedshows")
+    public List<Show> getShowsWithMaxPerformers(){return showService.getShowsWithMaxPerformers();}
+
 }
