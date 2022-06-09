@@ -47,5 +47,5 @@ public class FestivalService {
     public List<Festival> getFestivalsForACity(String city) { return festivalRepository.findAllByFestivalLocationContains(city);}
 
 
-//    public List<Festival> getFestivalByName(String name) { return festivalRepository.findAllByFestivalNameNative(name);}
+    public List<Festival> getFestivalByName(String name) { return festivalRepository.findAllByFestivalNameNative(name);}
 }

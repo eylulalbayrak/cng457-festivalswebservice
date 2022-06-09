@@ -52,7 +52,7 @@ public class FestivalController {
     public List<Festival> getFestivalsForACity(@PathVariable String city){ return festivalService.getFestivalsForACity(city); }
 
 
-//    @GetMapping("/festivalsbyname")
-//    public List<Festival> getFestivalByName(@RequestParam(name="festivalName") String name){ return festivalService.getFestivalByName(name);}
+    @GetMapping("/festivalsbyname")
+    public List<Festival> getFestivalByName(@RequestParam(name="festivalName") String name){ return festivalService.getFestivalByName(name);}
 
 }

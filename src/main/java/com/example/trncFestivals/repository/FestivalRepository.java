@@ -18,7 +18,7 @@ public interface FestivalRepository extends JpaRepository<Festival, Integer> {
      */
     List<Festival> findAllByFestivalLocationContains(String city);
 
-//    @Query(value = "SELECT * FROM Festival WHERE festival_name = :festivalName", nativeQuery = true)
-//    List<Festival> findAllByFestivalNameNative(@Param("festivalName") String name);
+    @Query(value = "SELECT * FROM Festival WHERE festival_name LIKE CONCAT('%',:festivalName,'%')", nativeQuery = true)
+    List<Festival> findAllByFestivalNameNative(@Param("festivalName") String name);
 
 }
