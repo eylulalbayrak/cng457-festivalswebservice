@@ -1,7 +1,6 @@
 package com.example.trncFestivals.controller;
 
 import com.example.trncFestivals.entity.Festival;
-import com.example.trncFestivals.entity.FestivalRun;
 import com.example.trncFestivals.service.FestivalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -51,4 +50,19 @@ public class FestivalController {
     public List<Festival> getFestivalsForACity(@PathVariable String city){ return festivalService.getFestivalsForACity(city); }
 
 
+    /**
+     * Method for getting all the festivals with a given keyword
+     * @param name Keyword
+     * @return Festivals with a given keyword
+     */
+    @GetMapping("/festivalsbyname")
+    public List<Festival> getFestivalByName(@RequestParam(name="festivalName") String name){ return festivalService.getFestivalByName(name);}
+
+
+    /**
+     * Method for getting all the festivals with the highest number of festival runs
+     * @return Festivals with the highest number of festival runs
+     */
+    @GetMapping("/popularfestivals")
+    public List<Festival> getFestivalsWithHighestRuns(){ return festivalService.getFestivalsWithHighestRuns();}
 }
