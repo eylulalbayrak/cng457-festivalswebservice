@@ -1,6 +1,5 @@
 package com.example.trncFestivals.controller;
 
-import com.example.trncFestivals.entity.Festival;
 import com.example.trncFestivals.entity.FestivalRun;
 import com.example.trncFestivals.service.FestivalRunService;
 import org.springframework.beans.factory.annotation.Autowired;
