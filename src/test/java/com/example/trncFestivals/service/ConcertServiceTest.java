@@ -41,14 +41,14 @@ public class ConcertServiceTest {
     void getConcertWithLongestDuration(){
         ArrayList<Concert> concerts = new ArrayList<>();
 
-        concerts.add(new Concert(1, "Concert 1", "First Concert", new Date(2022, Calendar.JUNE, 3), 2, null, "Tarkan"));
-        concerts.add(new Concert(2, "Concert 2", "Second Concert", new Date(2021, Calendar.JUNE, 3), 2, null, "Murat Boz"));
+        concerts.add(new Concert(1, "Concert 1", "First Concert", new Date(2022, Calendar.JUNE, 3), 5, null, "Tarkan"));
+        concerts.add(new Concert(2, "Concert 2", "Second Concert", new Date(2021, Calendar.JUNE, 3), 5, null, "Murat Boz"));
         concerts.add(new Concert(3, "Concert 3", "Third Concert", new Date(2020, Calendar.JUNE, 3), 2, null, "Emel Sayın"));
 
         when(concertRepository.findAll()).thenReturn(concerts);
 
         List<Concert> concertList = concertService.getConcertWithLongestDuration();
-        assertEquals(3, concertList.size());
+        assertEquals(2, concertList.size());
         assertEquals("Concert 1", concertList.get(0).getEventName());
 
     }

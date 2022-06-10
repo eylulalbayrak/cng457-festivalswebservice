@@ -11,20 +11,33 @@ import org.springframework.boot.web.server.LocalServerPort;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Integration Testing of Individual
+ */
 @SpringBootTest(classes = TrncFestivalsApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class IndividualControllerTest {
 
+    /**
+     * Injection of the rest template
+     */
     @Autowired
     TestRestTemplate restTemplate;
 
+    /**
+     * Port Number
+     */
     @LocalServerPort
     int port;
 
 
-//    This test is not properly working. Details are explained in project report.
-//    @Test
-//    void getIndividualByNameOrSurnameOrPhoneNo() {
-//        assertEquals(this.restTemplate.getForObject("http://localhost:"  + port + "/organizersearch?key=Eylul", Individual[].class).length, 1);
-//    }
+    //This test is not properly working. Details are explained in project report.
+
+    /**
+     * Testing for getIndividualByNameOrSurnameOrPhoneNo()
+     */
+    @Test
+    void getIndividualByNameOrSurnameOrPhoneNo() {
+        assertEquals(this.restTemplate.getForObject("http://localhost:"  + port + "/organizersearch?key=Eylul", Individual[].class).length, 1);
+    }
 
 }

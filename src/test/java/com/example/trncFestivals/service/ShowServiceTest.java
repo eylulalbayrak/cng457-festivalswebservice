@@ -38,20 +38,24 @@ public class ShowServiceTest {
     void getShowsWithMaxPerformers(){
 
         ArrayList<Show> shows = new ArrayList<>();
-        Set<String> performers = new HashSet<>();
+        Set<String> performers1 = new HashSet<>();
+        Set<String> performers2 = new HashSet<>();
 
-        performers.add("Performer 1");
-        performers.add("Performer 2");
-        performers.add("Performer 3");
+        performers1.add("Performer 1");
+        performers1.add("Performer 2");
+        performers1.add("Performer 3");
 
-        shows.add(new Show(1, "Show 1", "First Show", new Date(2022, Calendar.JUNE, 3), 2, null, performers));
-        shows.add(new Show(2, "Show 2", "Second Show", new Date(2022, Calendar.JUNE, 3), 2, null, performers));
+        performers2.add("Performer 1");
+        performers2.add("Performer 2");
+
+        shows.add(new Show(1, "Show 1", "First Show", new Date(2022, Calendar.JUNE, 3), 2, null, performers1));
+        shows.add(new Show(2, "Show 2", "Second Show", new Date(2022, Calendar.JUNE, 3), 2, null, performers2));
 
 
         when(showRepository.findAll()).thenReturn(shows);
 
         List<Show> showList = showService.getShowsWithMaxPerformers();
-        assertEquals(2, showList.size());
+        assertEquals(1, showList.size());
         assertEquals("Show 1", showList.get(0).getEventName());
 
     }
