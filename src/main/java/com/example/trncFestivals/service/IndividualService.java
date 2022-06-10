@@ -32,4 +32,12 @@ public class IndividualService {
      * @return All individuals containing the given key
      */
     public List<Individual> getIndividualByFirstNameOrLastNameOrPhoneNumber(String key) {return individualRepository.findAllByIndividualFirstNameContainsOrIndividualLastNameContainsOrIndividualPhoneNumberContains(key, key, key);}
+
+
+    /**
+     * Method for getting all the individuals with multiple festival runs
+     * @return Individuals with multiple festival runs
+     */
+    public List<Individual> getIndividualsWithMultipleFestivalRuns() { return individualRepository.findAllIndividualsWithMultipleFestivalRuns();}
+
 }

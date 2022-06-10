@@ -34,4 +34,12 @@ public class IndividualController {
      */
     @GetMapping("/organisersearch")
     public List<Individual> getIndividualByNameOrSurnameOrPhoneNo(@RequestParam String key){ return individualService.getIndividualByFirstNameOrLastNameOrPhoneNumber(key);}
+
+    /**
+     * Method for getting all the individuals with multiple festival runs
+     * @return Individuals with multiple festival runs
+     */
+    @GetMapping("/individualswithmultipleruns")
+    public List<Individual> getIndividualsWithMultipleFestivalRuns() {return individualService.getIndividualsWithMultipleFestivalRuns();}
+
 }

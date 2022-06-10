@@ -47,5 +47,16 @@ public class FestivalService {
     public List<Festival> getFestivalsForACity(String city) { return festivalRepository.findAllByFestivalLocationContains(city);}
 
 
+    /**
+     * Method for getting all the festivals with a given keyword
+     * @param name Keyword
+     * @return Festivals with a given keyword
+     */
     public List<Festival> getFestivalByName(String name) { return festivalRepository.findAllByFestivalNameNative(name);}
+
+    /**
+     * Method for getting all the festivals with the highest number of festival runs
+     * @return Festivals with the highest number of festival runs
+     */
+    public List<Festival> getFestivalsWithHighestRuns(){ return festivalRepository.findAllFestivalsWithHighestRuns();}
 }
