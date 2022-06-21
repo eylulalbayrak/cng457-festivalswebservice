@@ -14,7 +14,7 @@ public interface FestivalRunRepository extends JpaRepository<FestivalRun, Intege
      * @param festivalid ID of the festival
      * @return List of festival runs with given ID
      */
-    List<FestivalRun> findAllFestivalsByFestivalRunID(int festivalid);
+    List<FestivalRun> findFestivalRunsByFestival_FestivalID(int festivalid);
 
     /**
      * Method for finding festival runs shorter than given duration
