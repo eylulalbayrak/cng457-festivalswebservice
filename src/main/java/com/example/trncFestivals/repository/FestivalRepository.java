@@ -32,11 +32,10 @@ public interface FestivalRepository extends JpaRepository<Festival, Integer> {
      * Method for getting all the festivals with the highest number of festival runs
      * @return Festivals with the highest number of festival runs
      */
-    @Query(value = "SELECT *" +
-            "FROM Festival f, festival_run r " +
-            "WHERE f.festivalid = r.festival_festivalid " +
-            "GROUP BY r.festival_festivalid " +
-            "HAVING COUNT(r.festival_runid) > 1", nativeQuery = true)
+    @Query(value = "select * from festival where festivalid in " +
+            "(select festivalid from (select f.festivalid, count(festival_runid) cnt from festival f, festival_run f_r  where f.festivalid = f_r.festival_festivalid group by f.festivalid) as fc," +
+            " (select max(c) maxcount from (select count(fr.festival_runid) c from festival f, festival_run fr where fr.festival_festivalid = f.festivalid group by festivalid) as festival_run_counts) as frcm " +
+            "where cnt = maxcount);", nativeQuery = true)
     List<Festival> findAllFestivalsWithHighestRuns();
 
 }
