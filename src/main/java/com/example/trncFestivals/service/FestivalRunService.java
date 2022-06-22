@@ -37,7 +37,7 @@ public class FestivalRunService {
      * @param festivalid ID of the festival
      * @return List of all the festival runs in a specific festival
      */
-    public List<FestivalRun> getAllFestivalRuns(int festivalid) { return festivalRunRepository.findAllFestivalsByFestivalRunID(festivalid); }
+    public List<FestivalRun> getAllFestivalRuns(int festivalid) { return festivalRunRepository.findFestivalRunsByFestival_FestivalID(festivalid); }
 
     /**
      * Method for getting the festival runs shorter than a specific duration
